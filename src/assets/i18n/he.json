@@ -1,0 +1,16 @@
+{
+    "CLAIM": {
+        "CLICK_TO_MESSAGE": "לחץ כאן להצגת הודעה",
+        "SELECT": "בחר",
+        "MESSAGE": "הודעה",
+        "ERROR": "שגיאה",
+        "APPROVAL": "אישור",
+        "YES": "כן",
+        "NO": "לא",
+        "UNKNOWN_ERROR": "שגיאה לא ידועה, נסה שנית",
+        "HELLO": "שלום,",
+        "LOGOUT": "התנתק",
+        "NOT_AVAILABLE_FEATURE": "אפשרות זו אינה זמינה כרגע.",
+        "FUTURE_DEVELOP": "פיתוח עתידי"
+    }
+}

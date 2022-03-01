@@ -1,0 +1,47 @@
+<div>
+    <div class="table-container has-spacing-top max-height-270">
+        <table class="table-migdal table-striped has-hover-effect" fixed-header>
+            <colgroup>
+                <col width="28px">
+                <col width="81px">
+                <col width="64px">
+                <col width="122px">
+                <col width="92px">
+                <col width="107px">
+            </colgroup>
+            <thead class="has-border-bottom no-padding">
+                <tr>
+                    <th></th>
+                    <th>שם איש קשר</th>
+                    <th>סוג</th>
+                    <th>כתובת</th>
+                    <th>טלפון נייד</th>
+                    <th>דוא"ל</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contact of contacts">
+                    <td>
+                        <span ng-if="!isInsuredInHealthClaim" data-ng-class="{'icon-envelope': contact.deliveryFlag}"></span>
+                    </td>
+                    <td >
+                        {{contact.firstName}} {{contact.lastName}}
+                    </td>
+                    <td>
+                        {{contact.type.value}}
+                    </td>
+                    <td>
+                        {{contact.address.cityName}} {{contact.address.streetName}}
+                    </td>
+                    <td>
+                        {{contact.cellPhone}}
+                    </td>
+                    <td>
+                        <div>{{contact.email}}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <button (click)="newContact()">הוסף איש קשר</button>
+</div>

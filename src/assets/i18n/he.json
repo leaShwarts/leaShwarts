@@ -1,16 +1,44 @@
 {
     "CLAIM": {
-        "CLICK_TO_MESSAGE": "לחץ כאן להצגת הודעה",
-        "SELECT": "בחר",
-        "MESSAGE": "הודעה",
-        "ERROR": "שגיאה",
-        "APPROVAL": "אישור",
-        "YES": "כן",
-        "NO": "לא",
-        "UNKNOWN_ERROR": "שגיאה לא ידועה, נסה שנית",
-        "HELLO": "שלום,",
-        "LOGOUT": "התנתק",
-        "NOT_AVAILABLE_FEATURE": "אפשרות זו אינה זמינה כרגע.",
-        "FUTURE_DEVELOP": "פיתוח עתידי"
+        "PROCESS_DETAILS": {
+            "CLAIM_TO": "תביעת אל:",
+            "DEVIATION": "חריגה",
+            "OBVIOUSLY": "ברור",
+            "CLAIM_STATUS": "מצב תביעה:",
+            "DEATH_FROM_DISABILITY": "פטירה מנכות",
+            "PARTICIPATING_CLAIMS": "תביעות משתתפות",
+            "PROCESS_REFRESH": "רענון תהליך"
+        },
+        "PROCESS_INFORMATION": {
+            "PROCESS_INFORMATION": "ריכוז מידע בתהליך",
+            "INSURED_DETAILS": "פרטי מבוטח",
+            "COMPANY_EMPLOYEE": "עובד חברה",
+            "NAME": "שם",
+            "ID": "ת.ז",
+            "AGE": "גיל",
+            "ADDRESS": "כתובת"
+        },
+        "CLAIM_CONTACTS": {
+            "CONTACTS": "ריכוז אנשי קשר",
+            "CONTACTS_LENGTH": "מספר אנשי קשר בתהליך:",
+            "POSSIBLE_ACTIONS": "פעולות אפשריות:",
+            "ADD_INSURED": "הוספת מבוטח",
+            "FULL_RESET": "איפוס מלא",
+            "RESET_CONTACTS": "איפוס אנשי קשר"
+        },
+        "CONTACTS":{
+            "CONTACTS":"אנשי קשר",
+            "NAME":"שם איש קשר",
+            "TYPE":"סוג",
+            "ADDRESS":"כתובת",
+            "PHONE":"טלפון נייד",
+            "EMAIL":"דואר אלקטרוני",
+            "ADD_CONTACT":"הוסף איש קשר"
+        }
+    },
+    "ENUMS": {
+        "SuperClaimStatus": {
+            "open": "פתוחה"
+        }
     }
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Claim } from 'app/model/claim.model';
-import { ClaimStatus } from 'app/model/enums';
+import { ClaimStatus, SuperClaimStatus } from 'app/model/enums';
 
 @Component({
   selector: 'app-process-details',
@@ -10,7 +10,7 @@ import { ClaimStatus } from 'app/model/enums';
 export class ProcessDetailsComponent implements OnInit {
 
   constructor() { }
-
+  superClaimStatus=SuperClaimStatus
   @Input()
   claim: Claim;
 

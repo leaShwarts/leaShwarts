@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Claim } from 'app/model/claim.model';
-import { ClaimStatus } from 'app/model/enums';
+import { ClaimStatus, ProcessStatus, SuperClaimStatus } from 'app/model/enums';
 
 @Component({
   selector: 'app-customer-claim',
@@ -13,28 +13,26 @@ export class CustomerClaimComponent implements OnInit {
   constructor() { }
 
   claim: Claim;
-  
+
 
   get process() { return this.claim?.process; }
-get contacts(){return this.claim?.contacts;}
+  get insured() { return this.claim?.process.insured; }
+  get contacts() { return this.claim?.contacts; }
 
   ngOnInit(): void {
     this.loadData();
-    
+
   }
   loadData() {
     this.claim = {
       process: {
         processType: "AMBULATORY_HEALTH_CLAIM",
-        processStatus: 1,
+        processStatus: ProcessStatus.AMBULATORY_HEALTH_CLAIM,
         superClaim: {
           inquiryPorcessFlag: true,
           irregularSuperClaimFlag: false,
           pensionFollowUpForInsuredType: 0,
-          superClaimStatus: {
-            code: 1,
-            value: "פתוחה"
-          },
+          superClaimStatus:SuperClaimStatus.open,
           deathAfterDisabilityFlag: false,
           operativeClaims: [
             {
@@ -78,7 +76,7 @@ get contacts(){return this.claim?.contacts;}
           lastJobDescription: "כללי - מקפת",
           smokingCode: 0,
           email: "NIKITA_JAIN@AMAT.COM",
-          cellPhone:548455675,
+          cellPhone: 548455675,
           address: {
             cityName: "רעננה",
             streetName: "אחוזה",
@@ -119,27 +117,27 @@ get contacts(){return this.claim?.contacts;}
             cityName: "מחנה תל נוף",
           },
           cellPhone: 525452206,
-          email:'adam@gmail.com'
+          email: 'adam@gmail.com'
         }]
     }
 
   }
 
 
- 
-    
 
 
 
-//   isAmbulatoryProcess() {
-//     return processType === "AMBULATORY_HEALTH_CLAIM" || vm.processType === "AMBULATORY_HEALTH_CLAIM_CONT";
-//   }
 
-//   contactIsInsured(contactPerson) {
-//     return contactPerson.type.code === contactPersonType.INSURED;
-//   }
 
-//   isInsuredInHealthClaim(contactPerson) {
-//     return isAmbulatoryProcess() && contactIsInsured(contactPerson);
-//   };
+  //   isAmbulatoryProcess() {
+  //     return processType === "AMBULATORY_HEALTH_CLAIM" || vm.processType === "AMBULATORY_HEALTH_CLAIM_CONT";
+  //   }
+
+  //   contactIsInsured(contactPerson) {
+  //     return contactPerson.type.code === contactPersonType.INSURED;
+  //   }
+
+  //   isInsuredInHealthClaim(contactPerson) {
+  //     return isAmbulatoryProcess() && contactIsInsured(contactPerson);
+  //   };
 }

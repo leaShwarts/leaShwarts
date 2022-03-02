@@ -1,19 +1,16 @@
 import { ContactPerson } from "./contact-person.model";
-import { ClaimStatus } from "./enums";
+import { ClaimStatus, ProcessStatus, SuperClaimStatus } from "./enums";
 import { Insured } from "./insured.model";
 
 export interface Claim{
     process :{
         processType: "AMBULATORY_HEALTH_CLAIM",
-        processStatus: number,
+        processStatus: ProcessStatus,
         superClaim: {
             inquiryPorcessFlag: boolean,
             irregularSuperClaimFlag: boolean,
             pensionFollowUpForInsuredType: number,
-            superClaimStatus : {
-                code : 1,
-                value : "פתוחה"
-            },
+            superClaimStatus : SuperClaimStatus,
             deathAfterDisabilityFlag: false,
             operativeClaims:
                 {

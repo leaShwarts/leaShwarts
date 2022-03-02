@@ -1,26 +1,24 @@
 <div>
-    <div style="background-color: aliceblue; font-size: initial; font-weight: bold; margin: 7px 0; padding: 5px;">ריכוז אנשי קשר</div>
-    <div class="content-inline" style="margin-top: 16px;  margin-right: 10px;">
+    <div style="background-color: aliceblue; font-size: initial; font-weight: bold; margin: 7px 0; padding: 5px;">{{'CLAIM.CLAIM_CONTACTS.CONTACTS'|translate}}</div>
+    <div class="content-inline" style="margin-top: 16px;  margin-right: 10px; display: flex;">
         <div style="padding: 0px 28px;">
-            <span>מספר אנשי קשר בתהליך: </span>
+            <span>{{'CLAIM.CLAIM_CONTACTS.CONTACTS_LENGTH'|translate}} </span>
             <span>{{contactsCount}}</span>
         </div>
-        <span ng-if-start="vm.isToShow">פעולות אפשריות: </span>
+        <span ng-if-start="vm.isToShow">{{'CLAIM.CLAIM_CONTACTS.POSSIBLE_ACTIONS'|translate}} </span>
         <div class="width-percent-15">
             <button class="button button-dark" (click)="addInsuredToContacts()">
-                הוספת מבוטח
-            </button>
+                {{'CLAIM.CLAIM_CONTACTS.ADD_INSURED'|translate}}            </button>
         </div>
         <div ng-if-end="vm.isToShow" class="width-percent-10">
             <button class="button button-dark" (click)="deleteContacts()">
-                איפוס מלא
-            </button>
+                {{'CLAIM.CLAIM_CONTACTS.FULL_RESET'|translate}}            </button>
         </div>
         <div class="width-percent-30">
             <button class="button button-dark" (click)="resetContacts()">
-                איפוס אנשי קשר
-            </button>
+                {{'CLAIM.CLAIM_CONTACTS.RESET_CONTACTS'|translate}}            </button>
         </div>
     </div>
 </div>
+<app-contacts [contacts]="contacts"></app-contacts>
 

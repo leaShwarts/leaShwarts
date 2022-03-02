@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Claim } from 'app/model/claim.model';
 import { ContactPerson } from 'app/model/contact-person.model';
+import { Insured } from 'app/model/insured.model';
 
 @Component({
   selector: 'app-claim-contacts',
@@ -12,9 +13,17 @@ export class ClaimContactsComponent implements OnInit {
   constructor() { }
 
   @Input()
-  claim: Claim;
+  insured: Insured;
 
-  get contacts(): ContactPerson[] { return this.claim?.contacts; }
+  @Output() contactsChange = new EventEmitter();
+
+  _contacts:ContactPerson[];
+  get contacts():ContactPerson[] { return this._contacts; }
+  @Input()
+  set contacts(val:ContactPerson[]) {
+    this._contacts = val;
+    this.contactsChange.emit(this._contacts);
+  }
 
   lastDeliveryFlag = false;
 
@@ -24,8 +33,7 @@ export class ClaimContactsComponent implements OnInit {
   }
 
   addInsuredToContacts() {
-    const insured = this.claim.process.insured;
-    if(this.contacts.filter(contact=>contact.identity===insured.identity).length>0){
+    if(this.contacts.filter(contact=>contact.identity===this.insured.identity).length>0){
       return;
     }
 
@@ -37,26 +45,26 @@ export class ClaimContactsComponent implements OnInit {
         value: "שאר"
       },
 
-      firstName: insured.firstName,
-      lastName: insured.lastName,
-      identity: insured.identity,
+      firstName: this.insured.firstName,
+      lastName: this.insured.lastName,
+      identity: this.insured.identity,
       address: {
-        cityName: insured.address.cityName,
-        streetName: insured.address.streetName
+        cityName: this.insured.address.cityName,
+        streetName: this.insured.address.streetName
       },
-      cellPhone: insured.cellPhone,
-      email: insured.email
+      cellPhone: this.insured.cellPhone,
+      email: this.insured.email
     });
 
     this.lastDeliveryFlag = !this.lastDeliveryFlag;
   }
 
   deleteContacts() {
-    this.claim.contacts = [];
+    this.contacts = [];
   }
   resetContacts() {
     if (this.contacts?.length > 0) {
-      this.claim.contacts = [this.claim.contacts[0]]
+      this.contacts = [this.contacts[0]]
     }
   }
 

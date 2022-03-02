@@ -1,29 +1,5 @@
 <div style="margin-top: 15px">
-<app-process-details [claim]="claim"></app-process-details>
-    
-    <div class="test-header content-inline">
-        <table style="margin-top: 16px;  margin-right: 10px;">
-            <tr>
-                <td style="padding: 0px 28px;">פרטי מבוטח: </td>
-                <td style="padding: 0px 28px;">{{process.insured.firstName}} {{process.insured.lastName}}</td>
-                <td  style="padding: 0px 28px;">{{process.insured.identity}}</td>
-                <td  style="padding: 0px 28px;">{{process.insured.age}}</td>
-                <td  style="padding: 0px 28px;">{{process.insured.address.streetName}}, {{process.insured.address.cityName}} </td>
-                <td class="invalid-text"  style="padding: 0px 28px;">
-                    <span *ngIf="process?.insured?.companyEmployer">{{process.insured.position}}- עובד חברה</span>
-                </td>
-            </tr>
-            <tr>
-                <td  style="padding: 0px 28px;"></td>
-                <td  style="padding: 0px 28px;">שם</td>
-                <td  style="padding: 0px 28px;">ת.ז</td>
-                <td  style="padding: 0px 28px;">גיל</td>
-                <td  style="padding: 0px 28px;">כתובת</td>
-                <td  style="padding: 0px 28px;"></td>
-            </tr>
-        </table>
-    </div>
-
-    <app-claim-contacts [claim]="claim"></app-claim-contacts>
-    <app-contacts [contacts]="contacts"></app-contacts>
+    <app-process-details [claim]="claim"></app-process-details>
+    <app-process-information [insured]="insured"></app-process-information>
+    <app-claim-contacts [insured]="insured" [(contacts)]="claim.contacts"></app-claim-contacts>
 </div>

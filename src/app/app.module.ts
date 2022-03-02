@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { CustomerClaimComponent } from './components/customer-claim/customer-claim.component';
 import { ProcessDetailsComponent } from './components/process-details/process-details.component';
 import { ClaimContactsComponent } from './components/claim-contacts/claim-contacts.component';
+import { ProcessInformationComponent } from './components/process-information/process-information.component';
+import { ErrorHandling } from './shared/handlers/error-handling.handler';
 
 registerLocaleData(localeHe);
 
@@ -28,7 +30,8 @@ registerLocaleData(localeHe);
     ContactsComponent,
     CustomerClaimComponent,
     ProcessDetailsComponent,
-    ClaimContactsComponent
+    ClaimContactsComponent,
+    ProcessInformationComponent
 
   ],
   imports: [
@@ -54,6 +57,7 @@ registerLocaleData(localeHe);
     LocalizationService,
     MessageService,
     { provide: LOCALE_ID, useValue: 'he' },
+    { provide: ErrorHandler, useClass: ErrorHandling },
     { provide: LocationStrategy, useClass: PathLocationStrategy }//PathLocationStrategy avoid # in url
   ],
   bootstrap: [AppComponent]

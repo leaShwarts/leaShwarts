@@ -8,6 +8,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { EnumTranslatePipe } from './localization/enum-translate.pipe';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { PhonePipe } from './pipes/phone.pipe';
+import { EnumService } from 'app/model/services/enum.service';
 
 
 
@@ -30,9 +32,13 @@ export function HttpLoaderFactory(http: HttpClient) {
   exports: [EnumTranslatePipe, 
     FormsModule, ReactiveFormsModule, TranslateModule,
     EnumTranslatePipe,
+    PhonePipe,
+    EnumTranslatePipe
   ],
   declarations: [EnumTranslatePipe, 
     EnumTranslatePipe,
+    PhonePipe,
+    EnumTranslatePipe
   ]
 })
 export class SharedModule {
@@ -41,7 +47,7 @@ export class SharedModule {
       ngModule: SharedModule,
 
       // the singletone providers - one instance for all modules
-      providers: [HttpClient,
+      providers: [HttpClient,PhonePipe,EnumTranslatePipe,EnumService 
       ]
     };
   }

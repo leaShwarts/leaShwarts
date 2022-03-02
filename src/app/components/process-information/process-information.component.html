@@ -1,0 +1,24 @@
+<div style="background-color: aliceblue; font-size: initial; font-weight: bold; margin: 7px 0; padding: 5px;">{{'CLAIM.PROCESS_INFORMATION.PROCESS_INFORMATION'|translate}}</div>
+<div class="test-header content-inline">
+    <table style="margin-top: 16px;  margin-right: 10px;">
+        <tr>
+            <td style="padding: 0px 28px;">{{'CLAIM.PROCESS_INFORMATION.INSURED_DETAILS'|translate}}</td>
+            <td style="padding: 0px 28px;">{{insured.firstName}} {{insured.lastName}}</td>
+            <td style="padding: 0px 28px;">{{insured.identity}}</td>
+            <td style="padding: 0px 28px;">{{insured.age}}</td>
+            <td style="padding: 0px 28px;">{{insured.address.streetName}},
+                {{insured.address.cityName}} </td>
+            <td class="invalid-text" style="padding: 0px 28px;">
+                <span *ngIf="insured?.companyEmployer">{{insured.position}}- {{'CLAIM.PROCESS_INFORMATION.COMPANY_EMPLOYEE'|translate}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0px 28px;"></td>
+            <td style="padding: 0px 28px;">{{'CLAIM.PROCESS_INFORMATION.NAME'|translate}}</td>
+            <td style="padding: 0px 28px;">{{'CLAIM.PROCESS_INFORMATION.ID'|translate}}</td>
+            <td style="padding: 0px 28px;">{{'CLAIM.PROCESS_INFORMATION.AGE'|translate}}</td>
+            <td style="padding: 0px 28px;">{{'CLAIM.PROCESS_INFORMATION.ADDRESS'|translate}}</td>
+            <td style="padding: 0px 28px;"></td>
+        </tr>
+    </table>
+</div>

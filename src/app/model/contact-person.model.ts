@@ -14,5 +14,5 @@ export interface ContactPerson {
         streetName?: string
     },
     cellPhone: number,
-    email: string
+    email?: string
 }
